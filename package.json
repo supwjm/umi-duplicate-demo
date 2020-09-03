@@ -1,0 +1,86 @@
+{
+  "private": true,
+  "scripts": {
+    "build:test": "cross-env UMI_ENV=test umi build",
+    "start:test": "cross-env UMI_ENV=test node server.js",
+    "dev": "cross-env UMI_UI=none UMI_ENV=local DEV_PORT=9191 concurrently \"umi dev\" \"nodemon server.js\"",
+    "postinstall": "umi generate tmp",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage",
+    "checkModal": "umi dva list model",
+    "svg2font": "node utils/svg2font.js",
+    "build:analyze": "sh shell/analyze.sh"
+  },
+  "bin": {
+    "umi": "./node_modules/.bin/umi"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix --ext .js,jsx",
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/pro-layout": "^5.0.12",
+    "@stripe/stripe-js": "^1.9.0",
+    "@umijs/preset-react": "1.x",
+    "@umijs/test": "^3.2.10",
+    "axios-service": "^1.4.4",
+    "base-64": "^0.1.0",
+    "concurrently": "^5.2.0",
+    "dva-loading": "^3.0.20",
+    "js-md5": "^0.7.3",
+    "koa": "^2.13.0",
+    "koa-compress": "^5.0.1",
+    "koa2-proxy-middleware": "^0.0.4",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-wx-images-viewer": "^1.0.6",
+    "styled-components": "^5.1.1",
+    "swiper": "^6.1.2",
+    "umi": "^3.2.10",
+    "universal-cookie": "^4.0.3",
+    "url-join": "^4.0.1",
+    "yorkie": "^2.0.0"
+  },
+  "devDependencies": {
+    "address": "^1.1.2",
+    "babel-eslint": "^10.1.0",
+    "base-64": "^0.1.0",
+    "classnames": "^2.2.6",
+    "confusing-browser-globals": "^1.0.9",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.7.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-standard": "^4.0.1",
+    "ik-tracking": "git+ssh://git@code.inke.cn:opd/fe-aws/modules/ik-tracking.git",
+    "less-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "nodemon": "^2.0.4",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-px2remvw": "^1.0.0",
+    "qrcode-terminal": "^0.12.0",
+    "react-sticky": "^6.0.3",
+    "react-transition-group": "^4.4.1",
+    "webpack-iconfont-plugin-nodejs": "^1.0.17",
+    "weixin-js-sdk": "^1.6.0"
+  },
+  "__npminstall_done": false
+}
